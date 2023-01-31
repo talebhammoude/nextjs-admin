@@ -24,13 +24,13 @@ export default function BlogPage() {
   return (
     <>
       <Helmet>
-        <title> Admin | Kalendern </title>
+        <title> Admin | Hantera bokningar </title>
       </Helmet>
 
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            Bokningar i kalendern
+            Hantera bokningar
           </Typography>
           {/* <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
             New Post
