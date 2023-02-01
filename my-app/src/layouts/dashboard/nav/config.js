@@ -12,9 +12,9 @@ const navConfig = [
   //   icon: icon('ic_analytics'),
   // },
   {
-    title: 'Hantera',
-    path: '/dashboard/blog',
-    icon: icon('ic_blog'),
+    title: 'Bokningar',
+    path: '/dashboard/user',
+    icon: icon('ic_user'),
   },
   // {
   //   title: 'product',
@@ -22,9 +22,9 @@ const navConfig = [
   //   icon: icon('ic_cart'),
   // },
   {
-    title: 'user',
-    path: '/dashboard/user',
-    icon: icon('ic_user'),
+    title: 'Ny bokning',
+    path: '/dashboard/blog',
+    icon: icon('ic_blog'),
   },
   // {
   //   title: 'login',
