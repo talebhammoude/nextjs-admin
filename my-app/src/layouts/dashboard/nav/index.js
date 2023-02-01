@@ -17,7 +17,7 @@ import navConfig from './config';
 
 // ----------------------------------------------------------------------
 
-const NAV_WIDTH = 280;
+const NAV_WIDTH = 380;
 
 const StyledAccount = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -53,11 +53,11 @@ export default function Nav({ openNav, onCloseNav }) {
         '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
       }}
     >
-      <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
+      <Box sx={{ px: 9.5, py: 7, display: 'inline-flex' }}>
       <Box
             component="img"
             src="https://www.notez.se/assets/images/darksvg.svg"
-            sx={{ width: 220, position: '', top: 0 }}
+            sx={{ width: 320, position: '', top: 0 }}
           />
       </Box>
 

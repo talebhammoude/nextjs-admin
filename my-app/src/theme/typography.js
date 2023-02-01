@@ -5,7 +5,7 @@ export function remToPx(value) {
 }
 
 export function pxToRem(value) {
-  return `${value / 16}rem`;
+  return `${value / 13}rem`;
 }
 
 export function responsiveFontSizes({ sm, md, lg }) {
@@ -76,7 +76,7 @@ const typography = {
   subtitle2: {
     fontWeight: 600,
     lineHeight: 22 / 14,
-    fontSize: pxToRem(14),
+    fontSize: pxToRem(16),
   },
   body1: {
     lineHeight: 1.5,
@@ -84,7 +84,7 @@ const typography = {
   },
   body2: {
     lineHeight: 22 / 14,
-    fontSize: pxToRem(14),
+    fontSize: pxToRem(20),
   },
   caption: {
     lineHeight: 1.5,
@@ -99,7 +99,7 @@ const typography = {
   button: {
     fontWeight: 700,
     lineHeight: 24 / 14,
-    fontSize: pxToRem(14),
+    fontSize: pxToRem(12),
     textTransform: 'capitalize',
   },
 };

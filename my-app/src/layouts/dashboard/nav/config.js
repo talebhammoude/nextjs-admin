@@ -12,7 +12,7 @@ const navConfig = [
   //   icon: icon('ic_analytics'),
   // },
   {
-    title: 'blog',
+    title: 'Hantera',
     path: '/dashboard/blog',
     icon: icon('ic_blog'),
   },
