@@ -126,14 +126,16 @@ export default function UserPage() {
 
 
   const getDataAfterToday = async () => {
-    const q = query(collection(db, "bookedTimes"), where("date", "==", "2023-02-09"));
+    const today = new Date().toISOString().substr(0, 10);
+    const q = query(collection(db, "bookedTimes"), where('date', '>=', today));
+
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
-      console.log("talang");
+      console.log();
       // eslint-disable-next-line
-      setData(doc.data().date);
-        console.log(data)
+       setData(prev => [...prev, doc.data()]);
+       
     });
     
   };
@@ -201,9 +203,9 @@ export default function UserPage() {
 // eslint-disable-next-line
   useEffect(() => {
     getDataAfterToday();
-    console.log(data);
   }, []);
 
+  console.log(data)
 
   return (
     <>
