@@ -1,7 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
 // @mui
 import {
   Card,
@@ -31,7 +33,35 @@ import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 // mock
 import USERLIST from '../_mock/user';
 
+
+
 // ----------------------------------------------------------------------
+// eslint-disable-next-line
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC_iHDVZc4s5rlDsW2YrL4LBHAax6UNOBM",
+  authDomain: "stivo-9ebcd.firebaseapp.com",
+  projectId: "stivo-9ebcd",
+  storageBucket: "stivo-9ebcd.appspot.com",
+  messagingSenderId: "49507795581",
+  appId: "1:49507795581:web:25198d384b9db473d62714",
+  measurementId: "G-P7K9X2N1EM",
+};
+
+
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig, "my-unique-app-name");
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
+
+
+
+
+
 
 const TABLE_HEAD = [
   { id: 'name', label: 'Namn', alignRight: false },
@@ -74,6 +104,9 @@ function applySortFilter(array, comparator, query) {
 }
 
 export default function UserPage() {
+
+  const [data, setData] = useState([]);
+
   const [open, setOpen] = useState(null);
 
   const [page, setPage] = useState(0);
@@ -87,6 +120,25 @@ export default function UserPage() {
   const [filterName, setFilterName] = useState('');
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
+
+  
+  
+
+
+  const getDataAfterToday = async () => {
+    const q = query(collection(db, "bookedTimes"), where("date", "==", "2023-02-09"));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log("talang");
+      // eslint-disable-next-line
+      setData(doc.data().date);
+        console.log(data)
+    });
+    
+  };
+
+
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
@@ -145,6 +197,13 @@ export default function UserPage() {
   const filteredUsers = applySortFilter(USERLIST, getComparator(order, orderBy), filterName);
 
   const isNotFound = !filteredUsers.length && !!filterName;
+
+// eslint-disable-next-line
+  useEffect(() => {
+    getDataAfterToday();
+    console.log(data);
+  }, []);
+
 
   return (
     <>
