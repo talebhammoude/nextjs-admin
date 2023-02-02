@@ -25,6 +25,8 @@ import {
   TablePagination,
 } from '@mui/material';
 // components
+// eslint-disable-next-line
+import CancelBookingForm from 'src/components/cancel-booking-form';
 import Label from '../components/label';
 import Iconify from '../components/iconify';
 import Scrollbar from '../components/scrollbar';
@@ -32,6 +34,7 @@ import Scrollbar from '../components/scrollbar';
 import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 // mock
 import USERLIST from '../_mock/user';
+
 
 
 
@@ -121,6 +124,7 @@ export default function UserPage() {
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
+  const [showCancelForm, setShowCancelForm] = useState(false);
   
   
 
@@ -345,11 +349,14 @@ export default function UserPage() {
           Ändra
         </MenuItem>
 
-        <MenuItem sx={{ color: 'error.main' }}>
+        <MenuItem sx={{ color: 'error.main' }} onClick={() => setShowCancelForm(true)}>
           <Iconify icon={'eva:trash-2-outline'} sx={{ mr: 2 }} />
           Avboka
         </MenuItem>
+
+        
       </Popover>
+      {showCancelForm && <CancelBookingForm />}
     </>
   );
 }
