@@ -206,7 +206,7 @@ export default function UserPage() {
   }, []);
 
   console.log(data)
-
+  console.log(USERLIST);
   return (
     <>
       <Helmet>
