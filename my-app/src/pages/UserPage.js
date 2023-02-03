@@ -150,7 +150,6 @@ export default function UserPage() {
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
-    console.log(event)
   };
 
   const handleCloseMenu = () => {
@@ -203,7 +202,6 @@ export default function UserPage() {
 
   const handleCancelClick = (event) => {
     setShowCancelForm(true)
-    // eslint-disable-next-line
     setOpen(null);
   }
 

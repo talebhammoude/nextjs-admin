@@ -6,9 +6,11 @@ import "./styles.css";
 
 
 
-function CancelBookingForm() {
+function CancelBookingForm(props) {
   
-  
+  const handleAvbrytClick = ()=> {
+    props.showCancelBookingForm(null);
+  }
 
 
   return (
@@ -28,7 +30,7 @@ function CancelBookingForm() {
 
       
       <Button  className='btn-primary'   type="submit"  >Ja</Button>
-      <Button className='btn-warning' >Avbryt</Button>
+      <Button className='btn-warning' onClick={handleAvbrytClick} >Avbryt</Button>
      
 
     
