@@ -1,4 +1,4 @@
-.calendar-form-dialog {
+.change-form-dialog {
     width: 100%;
     max-width: 1040px;
     background: white;
@@ -8,19 +8,19 @@
     line-height: 1.125em;
     box-shadow: 2px 3px 14px 1px #a0a096;
     padding: 25px;
-    margin-left: 5%;
+    margin-left: 18%;
     position: relative;
-    top: -70vh;
+    top: -40vh;
     z-index: 100;
     
 }
 
 
 @media screen and (max-width: 770px) {
-    .calendar-form-dialog {
+    .change-form-dialog {
       width: 96%;
       height: 730px;
-      top: -99vh;
+      top: -63vh;
       margin-left: 2%;
       overflow-y: scroll;
     }

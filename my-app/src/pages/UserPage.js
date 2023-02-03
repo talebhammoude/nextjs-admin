@@ -27,6 +27,8 @@ import {
 // components
 // eslint-disable-next-line
 import CancelBookingForm from 'src/components/cancel-booking-form';
+// eslint-disable-next-line
+import ChangeBookingForm from 'src/components/change-booking-comp';
 import Label from '../components/label';
 import Iconify from '../components/iconify';
 import Scrollbar from '../components/scrollbar';
@@ -34,6 +36,7 @@ import Scrollbar from '../components/scrollbar';
 import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 // mock
 import USERLIST from '../_mock/user';
+
 
 
 
@@ -126,6 +129,8 @@ export default function UserPage() {
 
   const [showCancelForm, setShowCancelForm] = useState(false);
 
+  const [showChangeForm, setShowChangeForm] = useState(false);
+
   const [optionId, setOptionId] = useState();
   
   
@@ -205,6 +210,11 @@ export default function UserPage() {
     setOpen(null);
   }
 
+
+  const handleChangeBookingClick = () => {
+    setShowChangeForm(true)
+    setOpen(null);
+  }
 
 
   const handleCancelBooking = async () => {
@@ -363,7 +373,7 @@ export default function UserPage() {
           },
         }}
       >
-        <MenuItem>
+        <MenuItem onClick={handleChangeBookingClick} >
           <Iconify icon={'eva:edit-fill'} sx={{ mr: 2 }} />
           Ändra
         </MenuItem>
@@ -375,6 +385,7 @@ export default function UserPage() {
 
         
       </Popover>
+      {showChangeForm && <ChangeBookingForm/>}
       {showCancelForm && <CancelBookingForm showCancelBookingForm={setShowCancelForm} handleCancelBooking={handleCancelBooking} />}
     </>
   );
