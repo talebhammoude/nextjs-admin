@@ -125,6 +125,8 @@ export default function UserPage() {
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const [showCancelForm, setShowCancelForm] = useState(false);
+
+  const [optionId, setOptionId] = useState();
   
   
 
@@ -148,6 +150,7 @@ export default function UserPage() {
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
+    console.log(event)
   };
 
   const handleCloseMenu = () => {
@@ -198,6 +201,12 @@ export default function UserPage() {
     setFilterName(event.target.value);
   };
 
+  const handleCancelClick = (event) => {
+    setShowCancelForm(true)
+    // eslint-disable-next-line
+    setOpen(null);
+  }
+
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.length) : 0;
 
   const filteredUsers = applySortFilter(data, getComparator(order, orderBy), filterName);
@@ -211,6 +220,7 @@ export default function UserPage() {
 
   console.log(data)
   console.log(USERLIST);
+  
   return (
     <>
       <Helmet>
@@ -272,7 +282,7 @@ export default function UserPage() {
                           <Label color={(status === 'banned' && 'error') || 'success'}>{sentenceCase(status)}</Label>
                         </TableCell>
 
-                        <TableCell align="right">
+                        <TableCell onClick={()=>{setOptionId(id)}} align="right">
                           <IconButton size="large" color="inherit" onClick={handleOpenMenu}>
                             <Iconify icon={'eva:more-vertical-fill'} />
                           </IconButton>
@@ -297,13 +307,13 @@ export default function UserPage() {
                           }}
                         >
                           <Typography variant="h6" paragraph>
-                            Not found
+                            Kunde inte hittas
                           </Typography>
 
                           <Typography variant="body2">
-                            No results found for &nbsp;
+                            Inga resultat hittades &nbsp;
                             <strong>&quot;{filterName}&quot;</strong>.
-                            <br /> Try checking for typos or using complete words.
+                            <br /> Försök att söka med hela ord.
                           </Typography>
                         </Paper>
                       </TableCell>
@@ -327,6 +337,7 @@ export default function UserPage() {
       </Container>
 
       <Popover
+       
         open={Boolean(open)}
         anchorEl={open}
         onClose={handleCloseMenu}
@@ -349,14 +360,14 @@ export default function UserPage() {
           Ändra
         </MenuItem>
 
-        <MenuItem sx={{ color: 'error.main' }} onClick={() => setShowCancelForm(true)}>
+        <MenuItem sx={{ color: 'error.main' }} onClick={handleCancelClick} >
           <Iconify icon={'eva:trash-2-outline'} sx={{ mr: 2 }} />
           Avboka
         </MenuItem>
 
         
       </Popover>
-      {showCancelForm && <CancelBookingForm />}
+      {showCancelForm && <CancelBookingForm showCancelBookingForm={setShowCancelForm} />}
     </>
   );
 }
