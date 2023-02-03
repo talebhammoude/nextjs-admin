@@ -200,10 +200,18 @@ export default function UserPage() {
     setFilterName(event.target.value);
   };
 
+  const handleCancelBookingClick = (event) => {
+    setShowCancelForm(true)
+    setOpen(null);
+  }
+
+
+
   const handleCancelClick = (event) => {
     setShowCancelForm(true)
     setOpen(null);
   }
+
 
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.length) : 0;
 
@@ -358,7 +366,7 @@ export default function UserPage() {
           Ändra
         </MenuItem>
 
-        <MenuItem sx={{ color: 'error.main' }} onClick={handleCancelClick} >
+        <MenuItem sx={{ color: 'error.main' }} onClick={handleCancelBookingClick} >
           <Iconify icon={'eva:trash-2-outline'} sx={{ mr: 2 }} />
           Avboka
         </MenuItem>
