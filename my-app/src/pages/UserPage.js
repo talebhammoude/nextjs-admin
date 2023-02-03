@@ -3,7 +3,7 @@ import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState, useEffect } from 'react';
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
+import { getFirestore, collection, query, where, getDocs, doc, deleteDoc } from "firebase/firestore";
 // @mui
 import {
   Card,
@@ -200,16 +200,18 @@ export default function UserPage() {
     setFilterName(event.target.value);
   };
 
-  const handleCancelBookingClick = (event) => {
+  const handleCancelBookingClick = () => {
     setShowCancelForm(true)
     setOpen(null);
   }
 
 
 
-  const handleCancelClick = (event) => {
-    setShowCancelForm(true)
-    setOpen(null);
+  const handleCancelBooking = async () => {
+    await deleteDoc(doc(db, "bookedTimes", optionId));
+    setTimeout(()=>{
+      setShowCancelForm(null);
+    },500)
   }
 
 
@@ -373,7 +375,7 @@ export default function UserPage() {
 
         
       </Popover>
-      {showCancelForm && <CancelBookingForm showCancelBookingForm={setShowCancelForm} />}
+      {showCancelForm && <CancelBookingForm showCancelBookingForm={setShowCancelForm} handleCancelBooking={handleCancelBooking} />}
     </>
   );
 }

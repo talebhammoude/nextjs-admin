@@ -12,12 +12,16 @@ function CancelBookingForm(props) {
     props.showCancelBookingForm(null);
   }
 
+  const handleJaClick = ()=> {
+    props.handleCancelBooking();
+  }
+
 
   return (
     <div >
 
       <div className='backdrop' />
-      <div className='form-dialog'>
+      <div className='cancel-form-dialog'>
 
 
       
@@ -29,7 +33,7 @@ function CancelBookingForm(props) {
       </Row>
 
       
-      <Button  className='btn-primary'   type="submit"  >Ja</Button>
+      <Button  className='btn-primary' onClick={handleJaClick} >Ja</Button>
       <Button className='btn-warning' onClick={handleAvbrytClick} >Avbryt</Button>
      
 
