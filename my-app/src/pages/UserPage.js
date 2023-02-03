@@ -210,8 +210,8 @@ export default function UserPage() {
   const handleCancelBooking = async () => {
     await deleteDoc(doc(db, "bookedTimes", optionId));
     setTimeout(()=>{
-      setShowCancelForm(null);
-    },500)
+      window.location.reload();
+    },130)
   }
 
 
