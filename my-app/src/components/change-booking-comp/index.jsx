@@ -9,6 +9,9 @@ import {useState} from 'react'
 function ChangeBookingForm(props) {
   
 
+  const handleAvbrytClick = ()=> {
+    props.showChangeBookingForm(false)
+  }
 
   
 
@@ -101,7 +104,7 @@ function ChangeBookingForm(props) {
 
       
       <Button  className='btn-primary'  >Ändra</Button>
-      <Button className='btn-primary'>Avbryt</Button>
+      <Button className='btn-primary' onClick={handleAvbrytClick}>Avbryt</Button>
      
 
     

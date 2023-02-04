@@ -9,7 +9,7 @@ import "./styles.css";
 function CancelBookingForm(props) {
   
   const handleAvbrytClick = ()=> {
-    props.showCancelBookingForm(null);
+    props.showCancelBookingForm(false);
   }
 
   const handleJaClick = ()=> {

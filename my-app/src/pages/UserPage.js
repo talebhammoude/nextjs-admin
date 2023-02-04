@@ -385,7 +385,7 @@ export default function UserPage() {
 
         
       </Popover>
-      {showChangeForm && <ChangeBookingForm/>}
+      {showChangeForm && <ChangeBookingForm showChangeBookingForm={setShowChangeForm}/>}
       {showCancelForm && <CancelBookingForm showCancelBookingForm={setShowCancelForm} handleCancelBooking={handleCancelBooking} />}
     </>
   );
