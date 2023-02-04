@@ -35,7 +35,8 @@ function ChangeBookingForm(props) {
         <Form.Group as={Col} md="3" controlId="validationCustom01">
           <Form.Label>Förnamn</Form.Label>
           <Form.Control
-            required
+            readOnly
+            
             type="text"
             placeholder="..."
       
@@ -47,7 +48,7 @@ function ChangeBookingForm(props) {
         <Form.Group as={Col} md="3" controlId="validationCustom02">
           <Form.Label>Efternamn</Form.Label>
           <Form.Control
-            required
+            readOnly
             type="text"
             placeholder="..."
             
@@ -59,7 +60,7 @@ function ChangeBookingForm(props) {
 
         <Form.Group as={Col} md="6" >
           <Form.Label>E-post</Form.Label>
-          <Form.Control type="email" placeholder="namn@exempel.com" required name="email" />
+          <Form.Control type="email" placeholder="namn@exempel.com" readOnly name="email" />
           <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
         </Form.Group>
        
