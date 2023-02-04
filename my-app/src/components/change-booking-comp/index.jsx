@@ -13,6 +13,11 @@ function ChangeBookingForm(props) {
     props.showChangeBookingForm(false)
   }
 
+
+  const handleAndraClick = ()=> {
+    props.handleChangeBooking();
+  }
+
   
 
 
@@ -63,7 +68,7 @@ function ChangeBookingForm(props) {
 
         <Form.Group as={Col} md="6" >
           <Form.Label>E-post</Form.Label>
-          <Form.Control type="email" placeholder="namn@exempel.com" readOnly name="email" />
+          <Form.Control type="email" placeholder="namn@exempel.com"  readOnly name="email" />
           <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
         </Form.Group>
        
@@ -103,7 +108,7 @@ function ChangeBookingForm(props) {
 
 
       
-      <Button  className='btn-primary'  >Ändra</Button>
+      <Button  className='btn-primary' onClick={handleAndraClick} >Ändra</Button>
       <Button className='btn-primary' onClick={handleAvbrytClick}>Avbryt</Button>
      
 

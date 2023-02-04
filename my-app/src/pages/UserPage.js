@@ -214,6 +214,10 @@ export default function UserPage() {
   const handleChangeBookingClick = () => {
     setShowChangeForm(true)
     setOpen(null);
+    setTimeout(()=> {
+      document.querySelector('[name="email"]').value="dsfsd@dsds.se";
+    },100)
+    
   }
 
 
@@ -222,6 +226,11 @@ export default function UserPage() {
     setTimeout(()=>{
       window.location.reload();
     },130)
+  }
+
+
+  const handleChangeBooking = async () => {
+    console.log('Talangen')
   }
 
 
@@ -385,7 +394,7 @@ export default function UserPage() {
 
         
       </Popover>
-      {showChangeForm && <ChangeBookingForm showChangeBookingForm={setShowChangeForm}/>}
+      {showChangeForm && <ChangeBookingForm showChangeBookingForm={setShowChangeForm} handleChangeBooking={handleChangeBooking}/>}
       {showCancelForm && <CancelBookingForm showCancelBookingForm={setShowCancelForm} handleCancelBooking={handleCancelBooking} />}
     </>
   );
