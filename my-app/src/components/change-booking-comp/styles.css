@@ -10,7 +10,7 @@
     padding: 25px;
     margin-left: 18%;
     position: relative;
-    top: -40vh;
+    top: -30vh;
     z-index: 100;
     
 }
@@ -20,7 +20,7 @@
     .change-form-dialog {
       width: 96%;
       height: 730px;
-      top: -63vh;
+      top: -50vh;
       margin-left: 2%;
       overflow-y: scroll;
     }
