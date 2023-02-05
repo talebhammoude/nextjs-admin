@@ -278,7 +278,7 @@ export default function UserPage() {
   return (
     <>
       <Helmet>
-        <title> Admin till bokningssystem </title>
+        <title> Admin | Hantera bokningar </title>
       </Helmet>
 
       <Container>
