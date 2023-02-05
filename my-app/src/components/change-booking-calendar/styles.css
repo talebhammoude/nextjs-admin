@@ -1,5 +1,5 @@
-.react-calendar {
-    width: 10%;
+.react-calendar-change {
+    width: 30%;
     max-width: 100%;
     background: white;
     border: 0px solid #bfbfbf;
@@ -9,6 +9,9 @@
     box-shadow: 0px 0px 4px 0px #cdcdcd;
     margin: auto;
     overflow: auto;
+    position: relative;
+    top: -60vh;
+    z-index: 200;
   }
   .react-calendar--doubleView {
     width: 700px;
@@ -29,8 +32,8 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
-  .react-calendar button {
-    height: 114px;
+  .react-calendar-change button {
+    height: 60px;
     margin: 0;
     border: 0;
     border-radius: 14px;

@@ -223,6 +223,9 @@ if(dataToArray.includes(dateValue)) {
       <div>
        {duplDatesArray && duplDatesArrayComplete ===true && <Calendar 
 
+
+      className={"react-calendar-change"}
+
        onChange={onChange} 
 
        onClickDay={(value) => {

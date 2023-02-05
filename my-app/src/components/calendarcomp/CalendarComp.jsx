@@ -224,7 +224,7 @@ if(dataToArray.includes(dateValue)) {
        {duplDatesArray && duplDatesArrayComplete ===true && <Calendar 
   
        onChange={onChange} 
-
+       
        onClickDay={(value) => {
          onChange(value);
          openForm();
