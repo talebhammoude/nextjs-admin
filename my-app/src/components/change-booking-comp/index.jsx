@@ -79,11 +79,11 @@ function ChangeBookingForm(props) {
 
       <Row className="mb-3">
         <Form.Group as={Col} md="6" >
-          <Form.Label >Önskad datum</Form.Label>
-          <Form.Control  type="text"   required   name="date" />
+          <Form.Label >Datum</Form.Label>
+          <Form.Control  type="date"   required   name="date" />
         </Form.Group>
         <Form.Group as={Col} md="6" controlId="validationCustom04">
-          <Form.Label>Välj önskad tid</Form.Label>
+          <Form.Label>Tid</Form.Label>
           <Form.Select name="time" >
             <option id="no-options" value=""></option>
             <option id="12:00 - 13:00" value="12:00 - 13:00">12:00 - 13:00</option>
@@ -102,7 +102,7 @@ function ChangeBookingForm(props) {
       <Row className="mb-2">
         <Form.Group className="mb-1"  >
         <Form.Label>Beskriv ditt fall</Form.Label>
-        <Form.Control id="description1" as="textarea" rows={2} name="descr"   required/>
+        <Form.Control id="description1" as="textarea" rows={2} name="descr"   readOnly/>
         </Form.Group>
       </Row>
 

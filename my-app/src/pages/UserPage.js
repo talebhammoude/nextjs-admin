@@ -3,7 +3,7 @@ import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState, useEffect } from 'react';
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, query, where, getDocs, doc, deleteDoc } from "firebase/firestore";
+import { getFirestore, collection, query, where, getDocs, getDoc,  doc, deleteDoc } from "firebase/firestore";
 // @mui
 import {
   Card,
@@ -211,12 +211,27 @@ export default function UserPage() {
   }
 
 
+  const setFormFieldsOnChange = async ()=> {
+
+    const docRef = doc(db, "bookedTimes", optionId);
+    const docSnap = await getDoc(docRef); 
+          
+    document.querySelector('[name="firstname"]').value = docSnap.data().firstname;
+    document.querySelector('[name="lastname"]').value = docSnap.data().lastname;
+    document.querySelector('[name="email"]').value = docSnap.data().email;
+    document.querySelector('[name="descr"]').value = docSnap.data().description;
+          
+  }
+
+
   const handleChangeBookingClick = () => {
     setShowChangeForm(true)
     setOpen(null);
-    setTimeout(()=> {
-      document.querySelector('[name="email"]').value="dsfsd@dsds.se";
-    },100)
+    setTimeout( async ()=> {
+
+    await setFormFieldsOnChange();
+      
+    },300)
     
   }
 
