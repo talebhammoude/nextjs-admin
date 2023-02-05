@@ -252,6 +252,18 @@ export default function UserPage() {
   }
 
 
+  const handleChangeBookingClick = () => {
+    setShowCalendar(true)
+    setOpen(null);
+    setTimeout( async ()=> {
+
+    
+      
+    },300)
+    
+  }
+
+
   const handleChangeBooking =  () => {
     const docRef = doc(db, "bookedTimes", optionId);
     setDoc(docRef, {
@@ -429,7 +441,7 @@ export default function UserPage() {
           Visa
         </MenuItem>
 
-        <MenuItem  >
+        <MenuItem onClick={handleChangeBookingClick} >
           <Iconify icon={'eva:edit-fill'} sx={{ mr: 2 }} />
           Ändra
         </MenuItem>

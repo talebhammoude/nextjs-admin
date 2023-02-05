@@ -220,7 +220,7 @@ if(dataToArray.includes(dateValue)) {
   
     return (
 
-      <div key={Math.random()}>
+      <div>
        {duplDatesArray && duplDatesArrayComplete ===true && <Calendar 
 
        onChange={onChange} 

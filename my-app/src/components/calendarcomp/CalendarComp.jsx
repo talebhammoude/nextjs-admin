@@ -222,7 +222,7 @@ if(dataToArray.includes(dateValue)) {
 
       <div>
        {duplDatesArray && duplDatesArrayComplete ===true && <Calendar 
-
+  
        onChange={onChange} 
 
        onClickDay={(value) => {
