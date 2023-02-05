@@ -7,7 +7,7 @@ import './styles.css';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 
-import CalendarForm from '../calendarform/CalendarForm';
+import ChangeBookingForm from '../change-booking-form';
 
 
 // import { getAnalytics } from "firebase/analytics";
@@ -252,7 +252,7 @@ if(dataToArray.includes(dateValue)) {
                     )} />  }
         
         {/* eslint-disable */}
-        {formState && <CalendarForm dayValue={value.toLocaleDateString("sv-SE")} cancelForm={cancelFormFunc}  addBooking={addToDb}  showSuccess={success} />}
+        {formState && <ChangeBookingForm dayValue={value.toLocaleDateString("sv-SE")} cancelForm={cancelFormFunc}  addBooking={addToDb}  showSuccess={success} />}
                     
 
       
