@@ -386,6 +386,7 @@ export default function UserPage() {
             page={page}
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
+            labelRowsPerPage="Rader per sida"
           />
         </Card>
       </Container>
