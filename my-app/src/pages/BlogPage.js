@@ -30,7 +30,7 @@ export default function BlogPage() {
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            Lägg till ny bokning
+            Lägg till en ny bokning
           </Typography>
           {/* <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
             New Post
