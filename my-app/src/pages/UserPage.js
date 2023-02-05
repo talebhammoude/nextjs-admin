@@ -3,7 +3,7 @@ import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState, useEffect } from 'react';
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, query, where, getDocs, getDoc,  doc, deleteDoc } from "firebase/firestore";
+import { getFirestore, collection, query, where, getDocs, getDoc,  doc, deleteDoc, setDoc } from "firebase/firestore";
 // @mui
 import {
   Card,
@@ -244,8 +244,20 @@ export default function UserPage() {
   }
 
 
-  const handleChangeBooking = async () => {
-    console.log('Talangen')
+  const handleChangeBooking =  () => {
+    const docRef = doc(db, "bookedTimes", optionId);
+    setDoc(docRef, {
+      firstname: document.querySelector('[name="firstname"]').value,
+      lastname: document.querySelector('[name="lastname"]').value,
+      email: document.querySelector('[name="email"]').value,
+      date: document.querySelector('[name="date"]').value, 
+      time: document.querySelector('[name="time"]').value,
+      description: document.querySelector('[name="descr"]').value,
+    });
+
+    setTimeout(()=>{
+      window.location.reload();
+    },400)
   }
 
 

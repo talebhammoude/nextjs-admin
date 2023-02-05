@@ -24,23 +24,23 @@ export default function BlogPage() {
   return (
     <>
       <Helmet>
-        <title> Admin | Hantera bokningar </title>
+        <title> Admin | Ny bokning </title>
       </Helmet>
 
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            Hantera bokningar
+            Lägg till ny bokning
           </Typography>
           {/* <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
             New Post
           </Button> */}
         </Stack>
 
-        <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
+        {/* <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
           <BlogPostsSearch posts={POSTS} />
-          {/* <BlogPostsSort options={SORT_OPTIONS} /> */}
-        </Stack>
+          <BlogPostsSort options={SORT_OPTIONS} />
+        </Stack> */}
 
 
         {/* <Grid container spacing={3}>
