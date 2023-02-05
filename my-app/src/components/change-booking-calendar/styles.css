@@ -1,5 +1,5 @@
 .react-calendar-change {
-    width: 30%;
+    width: 55vh;
     max-width: 100%;
     background: white;
     border: 0px solid #bfbfbf;
@@ -10,7 +10,7 @@
     margin: auto;
     overflow: auto;
     position: relative;
-    top: -60vh;
+    top: -630px;
     z-index: 200;
   }
   .react-calendar--doubleView {
