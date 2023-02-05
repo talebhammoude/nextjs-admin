@@ -28,7 +28,9 @@ import {
 // eslint-disable-next-line
 import CancelBookingForm from 'src/components/cancel-booking-form';
 // eslint-disable-next-line
-import ChangeBookingForm from 'src/components/change-booking-comp';
+import ViewBookingForm from 'src/components/view-booking-comp';
+// eslint-disable-next-line
+import ChangeBookingCalendar from 'src/components/change-booking-calendar';
 import Label from '../components/label';
 import Iconify from '../components/iconify';
 import Scrollbar from '../components/scrollbar';
@@ -36,6 +38,8 @@ import Scrollbar from '../components/scrollbar';
 import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 // mock
 import USERLIST from '../_mock/user';
+
+
 
 
 
@@ -129,7 +133,9 @@ export default function UserPage() {
 
   const [showCancelForm, setShowCancelForm] = useState(false);
 
-  const [showChangeForm, setShowChangeForm] = useState(false);
+  const [showViewForm, setShowViewForm] = useState(false);
+
+  const [showCalendar, setShowCalendar] = useState(false);
 
   const [optionId, setOptionId] = useState();
   
@@ -219,13 +225,15 @@ export default function UserPage() {
     document.querySelector('[name="firstname"]').value = docSnap.data().firstname;
     document.querySelector('[name="lastname"]').value = docSnap.data().lastname;
     document.querySelector('[name="email"]').value = docSnap.data().email;
+    document.querySelector('[name="date"]').value = docSnap.data().date;
+    document.querySelector('[name="time"]').value = docSnap.data().time;
     document.querySelector('[name="descr"]').value = docSnap.data().description;
           
   }
 
 
-  const handleChangeBookingClick = () => {
-    setShowChangeForm(true)
+  const handleViewBookingClick = () => {
+    setShowViewForm(true)
     setOpen(null);
     setTimeout( async ()=> {
 
@@ -414,7 +422,14 @@ export default function UserPage() {
           },
         }}
       >
-        <MenuItem onClick={handleChangeBookingClick} >
+
+
+        <MenuItem onClick={handleViewBookingClick} >
+          <Iconify icon={'mingcute:more-3-line'} sx={{ mr: 2 }} />
+          Visa
+        </MenuItem>
+
+        <MenuItem  >
           <Iconify icon={'eva:edit-fill'} sx={{ mr: 2 }} />
           Ändra
         </MenuItem>
@@ -426,7 +441,8 @@ export default function UserPage() {
 
         
       </Popover>
-      {showChangeForm && <ChangeBookingForm showChangeBookingForm={setShowChangeForm} handleChangeBooking={handleChangeBooking}/>}
+      {showCalendar && <ChangeBookingCalendar />}
+      {showViewForm && <ViewBookingForm showViewBookingForm={setShowViewForm} />}
       {showCancelForm && <CancelBookingForm showCancelBookingForm={setShowCancelForm} handleCancelBooking={handleCancelBooking} />}
     </>
   );

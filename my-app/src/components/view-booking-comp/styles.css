@@ -1,4 +1,4 @@
-.change-form-dialog {
+.view-form-dialog {
     width: 100%;
     max-width: 1040px;
     background: white;
@@ -17,7 +17,7 @@
 
 
 @media screen and (max-width: 770px) {
-    .change-form-dialog {
+    .view-form-dialog {
       width: 96%;
       height: 730px;
       top: 10vh;

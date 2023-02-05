@@ -1,21 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Form , Button, Row, Col} from "react-bootstrap";
 import "./styles.css";
-import {useState} from 'react'
 
 
 
 
-function ChangeBookingForm(props) {
+
+function ViewBookingForm(props) {
   
 
-  const handleAvbrytClick = ()=> {
-    props.showChangeBookingForm(false)
-  }
-
-
-  const handleAndraClick = ()=> {
-    props.handleChangeBooking();
+  const handleCloseClick = ()=> {
+    props.showViewBookingForm(false)
   }
 
   
@@ -25,7 +20,7 @@ function ChangeBookingForm(props) {
     <div >
 
       <div className='backdrop' />
-      <div className='change-form-dialog'>
+      <div className='view-form-dialog'>
 
 
       
@@ -33,7 +28,7 @@ function ChangeBookingForm(props) {
       
 
       <Row className="mb-4">
-        <h2>Ändra bokning</h2>
+        <h2>Visa bokning</h2>
       </Row>
 
       {/* eslint-disable */}
@@ -46,7 +41,7 @@ function ChangeBookingForm(props) {
             readOnly
             
             type="text"
-            placeholder="..."
+            placeholder="......"
       
             name="firstname"
            
@@ -58,7 +53,7 @@ function ChangeBookingForm(props) {
           <Form.Control
             readOnly
             type="text"
-            placeholder="..."
+            placeholder="......."
             
             name="lastname"
            
@@ -68,7 +63,7 @@ function ChangeBookingForm(props) {
 
         <Form.Group as={Col} md="6" >
           <Form.Label>E-post</Form.Label>
-          <Form.Control type="email" placeholder="namn@exempel.com"  readOnly name="email" />
+          <Form.Control type="text" placeholder="........."  readOnly name="email" />
           <Form.Control.Feedback type="invalid"></Form.Control.Feedback>
         </Form.Group>
        
@@ -80,17 +75,12 @@ function ChangeBookingForm(props) {
       <Row className="mb-3">
         <Form.Group as={Col} md="6" >
           <Form.Label >Datum</Form.Label>
-          <Form.Control  type="date"   required   name="date" />
+          <Form.Control  type="text"   readOnly placeholder="........"  name="date" />
         </Form.Group>
-        <Form.Group as={Col} md="6" controlId="validationCustom04">
+        <Form.Group readOnly as={Col} md="6" controlId="validationCustom04">
           <Form.Label>Tid</Form.Label>
-          <Form.Select name="time" >
-            <option id="no-options" value=""></option>
-            <option id="12:00 - 13:00" value="12:00 - 13:00">12:00 - 13:00</option>
-            <option id="13:10 - 14:10" value="13:10 - 14:10">13:10 - 14:10</option>
-            <option id="14:20 - 15:20" value="14:20 - 15:20">14:20 - 15:20</option>
-            <option id="15:30 - 16:30" value="15:30 - 16:30">15:30 - 16:30</option>
-          </Form.Select>
+          <Form.Control placeholder="........." type="text" readOnly  name="time" />
+          
         </Form.Group>
         
       </Row>
@@ -101,15 +91,15 @@ function ChangeBookingForm(props) {
 
       <Row className="mb-2">
         <Form.Group className="mb-1"  >
-        <Form.Label>Beskriv ditt fall</Form.Label>
-        <Form.Control id="description1" as="textarea" rows={2} name="descr"   readOnly/>
+        <Form.Label>Beskrivning</Form.Label>
+        <Form.Control id="description1" as="textarea" rows={2} name="descr" placeholder="............."  readOnly/>
         </Form.Group>
       </Row>
 
 
       
-      <Button  className='btn-primary' onClick={handleAndraClick} >Ändra</Button>
-      <Button className='btn-primary' onClick={handleAvbrytClick}>Avbryt</Button>
+      
+      <Button className='btn-primary' onClick={handleCloseClick}>Stäng</Button>
      
 
     
@@ -121,4 +111,4 @@ function ChangeBookingForm(props) {
   );
 }
 
-export default ChangeBookingForm;
+export default ViewBookingForm;
