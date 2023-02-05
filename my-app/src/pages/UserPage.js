@@ -387,6 +387,10 @@ export default function UserPage() {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
             labelRowsPerPage="Rader per sida"
+            labelDisplayedRows= {({ from, to, count })=>{
+              return `${from}–${to} av ${count !== -1 ? count : `more than ${to}`}`;
+            }}
+
           />
         </Card>
       </Container>
