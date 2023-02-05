@@ -8,9 +8,9 @@
     line-height: 1.125em;
     box-shadow: 2px 3px 14px 1px #a0a096;
     padding: 25px;
-    margin-left: 18%;
-    position: relative;
-    top: -30vh;
+    margin-left: 15%;
+    position: absolute;
+    top: 20vh;
     z-index: 100;
     
 }
@@ -20,7 +20,7 @@
     .change-form-dialog {
       width: 96%;
       height: 730px;
-      top: -50vh;
+      top: 10vh;
       margin-left: 2%;
       overflow-y: scroll;
     }
