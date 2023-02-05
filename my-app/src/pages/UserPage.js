@@ -253,7 +253,7 @@ export default function UserPage() {
 
 
   const handleChangeBookingClick = () => {
-    setShowCalendar(true)
+    setShowCalendar(!showCalendar)
     setOpen(null);
     setTimeout( async ()=> {
 
@@ -453,7 +453,7 @@ export default function UserPage() {
 
         
       </Popover>
-      {showCalendar && <ChangeBookingCalendar />}
+      {showCalendar && <ChangeBookingCalendar setShowCalendar={setShowCalendar}  showCalendar={showCalendar}/>}
       {showViewForm && <ViewBookingForm showViewBookingForm={setShowViewForm} />}
       {showCancelForm && <CancelBookingForm showCancelBookingForm={setShowCancelForm} handleCancelBooking={handleCancelBooking} />}
     </>

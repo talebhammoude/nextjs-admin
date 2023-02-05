@@ -37,7 +37,7 @@ const db = getFirestore(firebaseApp);
 
 
 
-function ChangeBookingCalendar() {
+function ChangeBookingCalendar(props) {
 
 
     // För Datum värdet.
@@ -52,6 +52,8 @@ function ChangeBookingCalendar() {
 
     // Används för att se till så att datan är fullständig innan den renderar ut det i kalendern. Den är satt till false i början.
     const [duplDatesArrayComplete , setDuplDatesArrayComplete] = useState(false)
+
+    const [showBookingCalender , setShowBookingCalender] = useState(false)
 
   
 
@@ -186,6 +188,7 @@ if(dataToArray.includes(dateValue)) {
     // Används för att se till så att allt laddas klart innan rendering av kalendern.. se kommentar för state:n
     setTimeout(()=>{
       setDuplDatesArrayComplete(true);
+      setShowBookingCalender(true);
     },1000);
     
     }
@@ -212,7 +215,7 @@ if(dataToArray.includes(dateValue)) {
     }
 
 
-
+  
 
     
     
@@ -221,8 +224,10 @@ if(dataToArray.includes(dateValue)) {
     return (
 
       <div>
-        <div className='backdrop' />
-       {duplDatesArray && duplDatesArrayComplete ===true && <Calendar 
+        {/* eslint-disable-next-line */}
+        {showBookingCalender && <div className='backdrop' onClick={()=>{setShowBookingCalender(false); props.setShowCalendar(!props.showCalendar)}}/>}
+        
+       {duplDatesArray && duplDatesArrayComplete && showBookingCalender  ===true && <Calendar 
 
 
       className={"react-calendar-change"}
