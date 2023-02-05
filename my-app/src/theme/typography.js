@@ -53,7 +53,7 @@ const typography = {
   h4: {
     fontWeight: 700,
     lineHeight: 1.5,
-    fontSize: pxToRem(100),
+    fontSize: pxToRem(30),
     ...responsiveFontSizes({ sm: 20, md: 24, lg: 44 }),
   },
   h5: {

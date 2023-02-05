@@ -221,6 +221,7 @@ if(dataToArray.includes(dateValue)) {
     return (
 
       <div>
+        <div className='backdrop' />
        {duplDatesArray && duplDatesArrayComplete ===true && <Calendar 
 
 
