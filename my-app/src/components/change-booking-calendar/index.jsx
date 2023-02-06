@@ -57,29 +57,6 @@ function ChangeBookingCalendar(props) {
 
   
 
-    // Funktion för att skriva till databasen.
-async function addToDb() {
-  
-  try {
-    const docRef = await addDoc(collection(db, "bookedTimes"), {
-      firstname: document.querySelector("input[name='firstname']").value,
-      lastname: document.querySelector("input[name='lastname']").value,
-      email: document.querySelector("input[name='email']").value,
-      date: document.querySelector("input[name='date']").value,
-      time: document.querySelector("#validationCustom04").value,
-      description: document.querySelector("#description1").value,
-      
-    });
-    console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: " , e);
-    
-  }
-  
-}
-
-
-
 
 // Funktion för att kontrollera om tid är tillgänglig. Jämför med datan i databasen.
 async function checkIfTimeAvailable () {
@@ -125,6 +102,11 @@ if(dataToArray.includes(dateValue)) {
     const openForm = () => {
       setFormState("Just a value to open form");
       checkIfTimeAvailable();
+
+      setTimeout( async ()=> {
+        await props.setFormFieldsOnChange();
+      },300);
+      
     }
 
 
@@ -201,19 +183,6 @@ if(dataToArray.includes(dateValue)) {
     }, []);
 
       
-      
-
-
-
-    const success = () => {
-      cancelFormFunc();
-
-      document.querySelector(".kalendertext").innerHTML = "Thank you for your booking!";
-      document.querySelector(".kalendertext").style = "color: green";
-
-
-    }
-
 
   
 
@@ -252,7 +221,7 @@ if(dataToArray.includes(dateValue)) {
                     )} />  }
         
         {/* eslint-disable */}
-        {formState && <ChangeBookingForm dayValue={value.toLocaleDateString("sv-SE")} cancelForm={cancelFormFunc}  addBooking={addToDb}  showSuccess={success} />}
+        {formState && <ChangeBookingForm dayValue={value.toLocaleDateString("sv-SE")} cancelForm={cancelFormFunc}  handleChangeBooking={props.handleChangeBooking}  />}
                     
 
       

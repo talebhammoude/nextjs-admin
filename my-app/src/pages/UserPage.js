@@ -217,7 +217,7 @@ export default function UserPage() {
   }
 
 
-  const setFormFieldsOnChange = async ()=> {
+  const setFormFieldsOnView = async ()=> {
 
     const docRef = doc(db, "bookedTimes", optionId);
     const docSnap = await getDoc(docRef); 
@@ -232,12 +232,25 @@ export default function UserPage() {
   }
 
 
+  const setFormFieldsOnChange = async ()=> {
+
+    const docRef = doc(db, "bookedTimes", optionId);
+    const docSnap = await getDoc(docRef); 
+          
+    document.querySelector('[name="firstname"]').value = docSnap.data().firstname;
+    document.querySelector('[name="lastname"]').value = docSnap.data().lastname;
+    document.querySelector('[name="email"]').value = docSnap.data().email;
+    document.querySelector('[name="descr"]').value = docSnap.data().description;
+          
+  }
+
+
   const handleViewBookingClick = () => {
     setShowViewForm(true)
     setOpen(null);
     setTimeout( async ()=> {
 
-    await setFormFieldsOnChange();
+    await setFormFieldsOnView();
       
     },300)
     
@@ -453,7 +466,7 @@ export default function UserPage() {
 
         
       </Popover>
-      {showCalendar && <ChangeBookingCalendar setShowCalendar={setShowCalendar}  showCalendar={showCalendar}/>}
+      {showCalendar && <ChangeBookingCalendar setShowCalendar={setShowCalendar}  showCalendar={showCalendar}  setFormFieldsOnChange={setFormFieldsOnChange}  handleChangeBooking={handleChangeBooking}/>}
       {showViewForm && <ViewBookingForm showViewBookingForm={setShowViewForm} />}
       {showCancelForm && <CancelBookingForm showCancelBookingForm={setShowCancelForm} handleCancelBooking={handleCancelBooking} />}
     </>
