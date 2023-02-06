@@ -44,6 +44,9 @@ const handleSubmit = e => {
     
     .catch(error => console.log(error));
 
+    setTimeout( async()=>{
+     await window.location.reload();
+    },800)
   e.preventDefault();
   }
 
